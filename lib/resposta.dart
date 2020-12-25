@@ -1,17 +1,23 @@
 import 'package:flutter/material.dart';
 
 class Resposta extends StatelessWidget {
-  final String textoResposta;
-  Resposta(this.textoResposta);
+  final String texto;
+
+// função que retorna uma função
+  final void Function() quandoSelecionado;
+
+  Resposta(this.texto, this.quandoSelecionado);
 
   @override
   Widget build(BuildContext context) {
-    return RaisedButton(
-      child: Text(
-        textoResposta,
-        textAlign: TextAlign.center,
+    return Container(
+      width: double.infinity,
+      child: RaisedButton(
+        textColor: Colors.white,
+        color: Colors.blue,
+        child: Text(texto),
+        onPressed: quandoSelecionado,
       ),
-      onPressed: null,
     );
   }
 }
